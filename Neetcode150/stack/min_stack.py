@@ -45,9 +45,7 @@ class MinStack:
 
     def getMin(self) -> int:
         return self.minStack[-1]
-# Paste your class code above first
 
-# Test the MinStack
 if __name__ == "__main__":
     minStack = MinStack()   # create object
     minStack.push(3)
