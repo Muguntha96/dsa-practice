@@ -26,6 +26,12 @@ class Solution:
         if s[start]!=s[end]:
             return False
         return self.palidromeRecursion(s,start+1,end-1)
+    def isPalindromeSinglePointer(self,sStr:str,i:int)->bool:
+        if i>=len(sStr)//2:
+            return True
+        if sStr[i]!=sStr[len(sStr)-i-1]:
+            return False
+        return self.isPalindromeSinglePointer(sStr,i+1)
 
 
 sol=Solution()
@@ -33,3 +39,5 @@ s = "aabbcccdbbaa"
 start=0
 end=len(s)-1
 print(sol.palidromeRecursion(s,start,end))
+sStr="hannah"
+print(sol.isPalindromeSinglePointer(sStr,0))

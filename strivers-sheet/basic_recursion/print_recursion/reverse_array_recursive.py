@@ -10,17 +10,23 @@ from typing import List
 
 
 class Solution:
-    def reverseArray(self,n:List[int],start:int,end:int)->List[int]:
-        if start>=end:
+    def reverseArray(self,n:List[int],l:int,r:int)->List[int]:
+        if l>=r:
             return n
-        temp=n[start]
-        n[start]=n[end]
-        n[end]=temp
-        return self.reverseArray(n,start+1,end-1)
+        n[l],n[r]=n[r],n[l]
+        return self.reverseArray(n,l+1,r-1)
+    def reverseArraySinglePointer(self,nums:List[int],i:int)->List[int]:
+        if i>=len(nums)//2:
+            return nums
+        nums[i],nums[len(nums)-i-1]=nums[len(nums)-i-1],nums[i]
+        return self.reverseArraySinglePointer(nums,i+1)
 
 
 sol=Solution()
 n=[5,4,3,2,1]
-start=0
-end=len(n)-1
-print(sol.reverseArray(n,start,end))
+nums=[10,20,30,40]
+l=0
+i=0
+r=len(n)-1
+print(sol.reverseArray(n,l,r))
+print(sol.reverseArraySinglePointer(nums,i))
