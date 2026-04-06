@@ -53,3 +53,4 @@ if __name__ == "__main__":
     sol = Solution()
     detect_cycle = sol.hasCycle(head)
     print(detect_cycle)  
+    
