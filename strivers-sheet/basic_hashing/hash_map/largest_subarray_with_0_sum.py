@@ -23,10 +23,10 @@ class Solution:
         i=0
         while i<len(nums):
             prefix+=nums[i]
-            if prefix==0:
-                maxLen=max(maxLen,i+1)
+            # if prefix==0:
+            #     maxLen=max(maxLen,i+1)
             if prefix in seen:
-                maxLen=i-seen[prefix]
+                maxLen=max(maxLen,i-seen[prefix])
             else:
                 seen[prefix]=i
             i+=1
